@@ -1,16 +1,238 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Apothekeneinrichter Mädler - Seit 1881 Ihre Spezialisten für Apothekeneinrichtungen"
+  description="Seit 1881 Ihr Partner für individuelle Apothekeneinrichtungen, Arztpraxen und Wohnraummöbel. Traditionelle Handwerkskunst trifft auf zeitgemäßes Design."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section with Carousel -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div id="hero-carousel" class="absolute inset-0">
+        <!-- Carousel slides will be added here -->
+        <div class="carousel-slide active absolute inset-0 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center">
+          <div class="container text-center text-white">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+              Apothekeneinrichtungen<br />
+              <span class="text-accent">seit 1881</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+              Traditionelle Handwerkskunst trifft auf zeitgemäßes Design für individuelle Lösungen
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/kontakt" class="btn btn-primary btn-large">
+                Beratung anfragen
+              </a>
+              <a href="/leistungen" class="btn btn-secondary btn-large text-white border-white hover:bg-white hover:text-primary">
+                Unsere Leistungen
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl font-bold text-primary mb-6">
+              Willkommen bei Apothekeneinrichter Mädler
+            </h2>
+            <p class="text-lg text-secondary mb-6">
+              Seit der Gründung unserer Firma im Jahr 1881 steht der Name Mädler für die
+              perfekte Verbindung von traditioneller Handwerkskunst und zeitgemäßem Design.
+              Als Familienunternehmen in vierter Generation sind wir Ihr zuverlässiger Partner
+              für maßgeschneiderte Einrichtungslösungen.
+            </p>
+            <p class="text-lg text-secondary mb-8">
+              Ob Apothekeneinrichtung, Arztpraxis oder Wohnraummöbel – wir begleiten Sie von
+              der ersten Idee bis zur finalen Umsetzung und darüber hinaus.
+            </p>
+            <a href="/unternehmen" class="btn btn-primary">
+              Mehr über uns erfahren
+            </a>
+          </div>
+          <div class="relative">
+            <img
+              src="/images/maedler-planung.jpg"
+              alt="Mädler Planung und Handwerkskunst"
+              class="rounded-lg shadow-lg w-full h-96 object-cover"
+              loading="lazy"
+            />
+            <div class="absolute -bottom-6 -left-6 bg-accent text-white p-4 rounded-lg shadow-lg">
+              <div class="text-2xl font-bold">142</div>
+              <div class="text-sm">Jahre Erfahrung</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-primary mb-4">
+            Unsere Leistungen
+          </h2>
+          <p class="text-xl text-secondary max-w-3xl mx-auto">
+            Von der Konzeption bis zur Ausführung – wir bieten Ihnen umfassende
+            Lösungen für Ihre individuellen Einrichtungswünsche.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Apothekeneinrichtungen -->
+          <div class="card text-center hover:shadow-lg transition-shadow">
+            <div class="mb-6">
+              <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-primary">Apothekeneinrichtungen</h3>
+            <p class="text-secondary mb-6">
+              Maßgeschneiderte Lösungen für moderne Apotheken. Von der Raumplanung
+              bis zur kompletten Einrichtung – funktional und ästhetisch.
+            </p>
+            <a href="/apothekeneinrichtungen" class="btn btn-secondary">
+              Mehr erfahren
+            </a>
+          </div>
+
+          <!-- Arztpraxen -->
+          <div class="card text-center hover:shadow-lg transition-shadow">
+            <div class="mb-6">
+              <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-primary">Arztpraxen</h3>
+            <p class="text-secondary mb-6">
+              Durchdachte Praxiseinrichtungen, die Funktionalität und Patientenkomfort
+              optimal verbinden. Für alle medizinischen Fachrichtungen.
+            </p>
+            <a href="/arztpraxen" class="btn btn-secondary">
+              Mehr erfahren
+            </a>
+          </div>
+
+          <!-- Wohnraummöbel -->
+          <div class="card text-center hover:shadow-lg transition-shadow">
+            <div class="mb-6">
+              <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2v0a2 2 0 012-2h14a2 2 0 012 2v0"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-primary">Wohnraummöbel</h3>
+            <p class="text-secondary mb-6">
+              Hochwertige Möbel für Ihr Zuhause. Individuell gefertigt nach Ihren
+              Wünschen und perfekt an Ihre Räume angepasst.
+            </p>
+            <a href="/wohnraummoebel" class="btn btn-secondary">
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-primary mb-4">
+            Unser Vorgehen
+          </h2>
+          <p class="text-xl text-secondary max-w-3xl mx-auto">
+            In vier Schritten zu Ihrer perfekten Einrichtung
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+              1
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-primary">Konzept</h3>
+            <p class="text-secondary text-sm">
+              Persönliche Beratung und maßgeschneiderte Raumplanung vor Ort
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+              2
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-primary">Design</h3>
+            <p class="text-secondary text-sm">
+              Gestaltung der Atmosphäre durch Farbe, Licht und Form
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+              3
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-primary">Detailplanung</h3>
+            <p class="text-secondary text-sm">
+              Ästhetische und funktionale Umsetzung Ihrer Wünsche
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+              4
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-primary">Ausführung</h3>
+            <p class="text-secondary text-sm">
+              Termingerechte Realisierung in bewährter Qualität
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section bg-primary text-white">
+      <div class="container text-center">
+        <h2 class="text-4xl font-bold mb-4">
+          Bereit für Ihr Projekt?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Lassen Sie uns gemeinsam Ihre Vision verwirklichen.
+          Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/kontakt" class="btn btn-secondary btn-large bg-white text-primary hover:bg-gray-100">
+            Jetzt Kontakt aufnehmen
+          </a>
+          <a href="tel:+493746264500" class="btn btn-secondary btn-large text-white border-white hover:bg-white hover:text-primary">
+            +49 37462 / 6450
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

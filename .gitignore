@@ -22,3 +22,14 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# OS files
+Thumbs.db
+ehthumbs.db
+
+# Claude Code specific
+.claude/

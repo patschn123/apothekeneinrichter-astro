@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Leistungen - Apothekeneinrichter Mädler"
+  description="Umfassende Leistungen von Apothekeneinrichter Mädler: Konzeption, Design, Detailplanung und Ausführung für Apotheken, Arztpraxen und Wohnraummöbel."
+>
+  <Header />
+
+  <main>
+    <!-- Page Header -->
+    <section class="section bg-primary text-white">
+      <div class="container">
+        <div class="max-w-4xl">
+          <h1 class="text-5xl font-bold mb-6">
+            Unsere Leistungen
+          </h1>
+          <p class="text-xl leading-relaxed">
+            Von der ersten Idee bis zur finalen Umsetzung – wir bieten Ihnen umfassende
+            Lösungen für Ihre individuellen Einrichtungswünsche. In vier Schritten
+            verwirklichen wir gemeinsam Ihre Vision.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Process -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-primary mb-4">
+            Unser bewährtes 4-Schritte-System
+          </h2>
+          <p class="text-xl text-secondary max-w-3xl mx-auto">
+            Systematisch und zielgerichtet zu Ihrer perfekten Einrichtung
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Konzept -->
+          <div class="card text-center">
+            <div class="w-16 h-16 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-6 text-2xl font-bold">
+              1
+            </div>
+            <h3 class="text-2xl font-semibold mb-4 text-primary">Konzept</h3>
+            <p class="text-secondary mb-6 leading-relaxed">
+              Maßgeschneiderte Raumaufteilung und Einrichtung durch persönliche
+              Beratung direkt vor Ort in Ihrer Apotheke oder Praxis.
+            </p>
+            <ul class="text-sm text-secondary space-y-2 text-left">
+              <li>• Bestandsaufnahme vor Ort</li>
+              <li>• Bedarfsanalyse und Zielsetzung</li>
+              <li>• Raumplanung und Grundrissoptimierung</li>
+              <li>• Budgetplanung und Zeitrahmen</li>
+            </ul>
+          </div>
+
+          <!-- Design -->
+          <div class="card text-center">
+            <div class="w-16 h-16 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-6 text-2xl font-bold">
+              2
+            </div>
+            <h3 class="text-2xl font-semibold mb-4 text-primary">Design</h3>
+            <p class="text-secondary mb-6 leading-relaxed">
+              Gestaltung der Atmosphäre durch die gezielte Kombination von
+              Farbe, Licht und Form für Mensch und Architektur.
+            </p>
+            <ul class="text-sm text-secondary space-y-2 text-left">
+              <li>• Farbkonzept und Materialauswahl</li>
+              <li>• Lichtplanung und Beleuchtung</li>
+              <li>• Corporate Design Integration</li>
+              <li>• 3D-Visualisierung der Entwürfe</li>
+            </ul>
+          </div>
+
+          <!-- Detailplanung -->
+          <div class="card text-center">
+            <div class="w-16 h-16 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-6 text-2xl font-bold">
+              3
+            </div>
+            <h3 class="text-2xl font-semibold mb-4 text-primary">Detailplanung</h3>
+            <p class="text-secondary mb-6 leading-relaxed">
+              Ästhetische Grundsätze treffen auf funktionale Umsetzung Ihrer
+              individuellen Wünsche und Anforderungen.
+            </p>
+            <ul class="text-sm text-secondary space-y-2 text-left">
+              <li>• Technische Zeichnungen</li>
+              <li>• Materialspezifikation</li>
+              <li>• Ergonomie und Arbeitsabläufe</li>
+              <li>• Kostenaufstellung und Terminplan</li>
+            </ul>
+          </div>
+
+          <!-- Ausführung -->
+          <div class="card text-center">
+            <div class="w-16 h-16 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-6 text-2xl font-bold">
+              4
+            </div>
+            <h3 class="text-2xl font-semibold mb-4 text-primary">Ausführung</h3>
+            <p class="text-secondary mb-6 leading-relaxed">
+              Termingerechte Umsetzung in bewährter Qualität, flexibel auch
+              in Zusammenarbeit mit Ihren eigenen Handwerkern.
+            </p>
+            <ul class="text-sm text-secondary space-y-2 text-left">
+              <li>• Präzise Fertigung in eigener Werkstatt</li>
+              <li>• Professionelle Montage vor Ort</li>
+              <li>• Koordination aller Gewerke</li>
+              <li>• Abnahme und Nachbetreuung</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-primary mb-4">
+            Unsere Fachbereiche
+          </h2>
+          <p class="text-xl text-secondary max-w-3xl mx-auto">
+            Spezialisierte Lösungen für unterschiedliche Bereiche
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Apothekeneinrichtungen -->
+          <div class="card hover:shadow-xl transition-shadow">
+            <div class="mb-6">
+              <div class="w-20 h-20 mx-auto bg-primary text-white rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold mb-4 text-primary">Apothekeneinrichtungen</h3>
+            <p class="text-secondary mb-6 leading-relaxed">
+              Moderne und funktionale Apothekeneinrichtungen, die optimal auf
+              die Arbeitsabläufe und Kundenbedürfnisse abgestimmt sind.
+            </p>
+            <ul class="text-sm text-secondary space-y-2 mb-6">
+              <li>• Verkaufstheken und Beratungsplätze</li>
+              <li>• Warenpräsentation und Regalsysteme</li>
+              <li>• Rezeptur- und Laborbereich</li>
+              <li>• Lager- und Arbeitsplatzlösungen</li>
+            </ul>
+            <a href="/apothekeneinrichtungen" class="btn btn-primary w-full">
+              Mehr erfahren
+            </a>
+          </div>
+
+          <!-- Arztpraxen -->
+          <div class="card hover:shadow-xl transition-shadow">
+            <div class="mb-6">
+              <div class="w-20 h-20 mx-auto bg-primary text-white rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold mb-4 text-primary">Arztpraxen</h3>
+            <p class="text-secondary mb-6 leading-relaxed">
+              Durchdachte Praxiseinrichtungen, die Funktionalität und
+              Patientenkomfort optimal miteinander verbinden.
+            </p>
+            <ul class="text-sm text-secondary space-y-2 mb-6">
+              <li>• Empfang und Wartebereiche</li>
+              <li>• Behandlungsräume und Untersuchungsplätze</li>
+              <li>• Büro- und Verwaltungsbereiche</li>
+              <li>• Spezialausstattung je Fachrichtung</li>
+            </ul>
+            <a href="/arztpraxen" class="btn btn-primary w-full">
+              Mehr erfahren
+            </a>
+          </div>
+
+          <!-- Wohnraummöbel -->
+          <div class="card hover:shadow-xl transition-shadow">
+            <div class="mb-6">
+              <div class="w-20 h-20 mx-auto bg-primary text-white rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2v0a2 2 0 012-2h14a2 2 0 012 2v0"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold mb-4 text-primary">Wohnraummöbel</h3>
+            <p class="text-secondary mb-6 leading-relaxed">
+              Hochwertige Möbel für Ihr Zuhause, individuell gefertigt nach
+              Ihren Wünschen und perfekt an Ihre Räume angepasst.
+            </p>
+            <ul class="text-sm text-secondary space-y-2 mb-6">
+              <li>• Einbauschränke und Regale</li>
+              <li>• Küchen und Esszimmermöbel</li>
+              <li>• Büro- und Arbeitszimmer</li>
+              <li>• Badezimmer- und Schlafzimmermöbel</li>
+            </ul>
+            <a href="/wohnraummoebel" class="btn btn-primary w-full">
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-primary mb-4">
+            Zusätzliche Services
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h4 class="font-semibold mb-2 text-primary">Kostenlose Beratung</h4>
+            <p class="text-sm text-secondary">Unverbindliche Erstberatung vor Ort</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h4 class="font-semibold mb-2 text-primary">Termingerechte Lieferung</h4>
+            <p class="text-sm text-secondary">Zuverlässige Einhaltung vereinbarter Termine</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <h4 class="font-semibold mb-2 text-primary">Qualitätsgarantie</h4>
+            <p class="text-sm text-secondary">Langfristige Gewährleistung auf alle Arbeiten</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto bg-accent text-white rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+            </div>
+            <h4 class="font-semibold mb-2 text-primary">Nachbetreuung</h4>
+            <p class="text-sm text-secondary">Langfristige Betreuung und Service</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section bg-primary text-white">
+      <div class="container text-center">
+        <h2 class="text-4xl font-bold mb-4">
+          Bereit für Ihr Projekt?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Lassen Sie uns gemeinsam Ihre individuellen Anforderungen besprechen
+          und die optimale Lösung für Ihre Einrichtung entwickeln.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/kontakt" class="btn btn-secondary btn-large bg-white text-primary hover:bg-gray-100">
+            Kostenlose Beratung anfragen
+          </a>
+          <a href="tel:+493746264500" class="btn btn-secondary btn-large text-white border-white hover:bg-white hover:text-primary">
+            +49 37462 / 6450
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

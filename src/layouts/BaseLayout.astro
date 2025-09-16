@@ -1,0 +1,145 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Apothekeneinrichter Mädler - Seit 1881 Ihr Partner für individuelle Apothekeneinrichtungen, Arztpraxen und Wohnraummöbel. Traditionelle Handwerkskunst trifft auf zeitgemäßes Design.',
+  image = '/images/apothekeneinrichter-og-image.jpg',
+  canonical,
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Robot directives -->
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- Language -->
+    <meta name="language" content="German" />
+    <meta http-equiv="content-language" content="de" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Apothekeneinrichter Mädler" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.apothekeneinrichter.de/#organization",
+      "name": "Apothekeneinrichter Mädler",
+      "alternateName": "Mädler",
+      "description": "Seit 1881 Ihr Partner für individuelle Apothekeneinrichtungen, Arztpraxen und Wohnraummöbel. Traditionelle Handwerkskunst trifft auf zeitgemäßes Design.",
+      "url": "https://www.apothekeneinrichter.de",
+      "telephone": "+49 37462 6450",
+      "email": "info@apothekeneinrichter.de",
+      "foundingDate": "1881",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Steinberg",
+        "addressCountry": "DE"
+      },
+      "serviceArea": {
+        "@type": "Country",
+        "name": "Deutschland"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Apothekeneinrichtungen",
+              "description": "Individuelle Planung und Einrichtung von Apotheken"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Arztpraxen",
+              "description": "Maßgeschneiderte Praxiseinrichtungen für medizinische Einrichtungen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wohnraummöbel",
+              "description": "Hochwertige Möbel für den privaten Wohnbereich"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.apothekeneinrichter.de"
+      ]
+    }
+    </script>
+
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <slot />
+
+    <!-- Matomo Analytics -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//matomo.example.com/"; // Replace with actual Matomo URL
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']); // Replace with actual Site ID
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript>
+      <p><img src="//matomo.example.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p>
+    </noscript>
+  </body>
+</html>
