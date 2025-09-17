@@ -6,6 +6,3 @@ cmd = "npm run build"
 
 [variables]
 NIXPACKS_BUILD_OUTPUT_DIR = "dist"
-
-[providers]
-providers = ["nginx"]
