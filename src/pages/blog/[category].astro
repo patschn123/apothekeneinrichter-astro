@@ -1,22 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
-  const allBlogPosts = await getCollection('blog', ({ data }) => {
+  const allBlogPosts = await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
     return !data.draft;
   });
 
-  const categories = [...new Set(allBlogPosts.map(post => post.data.category))];
+  const categories = [...new Set(allBlogPosts.map((post: CollectionEntry<'blog'>) => post.data.category))] as string[];
 
-  return categories.map(category => ({
+  return categories.map((category: string) => ({
     params: { category },
     props: {
       posts: allBlogPosts
-        .filter(post => post.data.category === category)
-        .sort((a, b) =>
+        .filter((post: CollectionEntry<'blog'>) => post.data.category === category)
+        .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
           new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
         )
     }
@@ -34,7 +34,7 @@ const categoryNames = {
   'renovierung-modernisierung': 'Renovierung & Modernisierung'
 };
 
-const categoryName = categoryNames[category] || category;
+const categoryName = categoryNames[category as keyof typeof categoryNames] || category;
 
 const seoProps = {
   title: `${categoryName} - Expertentipps von Rebekka Mädler | Mädler`,
@@ -96,7 +96,7 @@ const breadcrumbs = [
 
     <!-- Blog Posts Grid -->
     <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {posts.map(post => (
+      {posts.map((post: CollectionEntry<'blog'>) => (
         <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
           <img
             src={post.data.featuredImage}

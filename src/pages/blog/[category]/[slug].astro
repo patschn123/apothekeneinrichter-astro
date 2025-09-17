@@ -1,15 +1,15 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 
 export async function getStaticPaths() {
-  const allBlogPosts = await getCollection('blog', ({ data }) => {
+  const allBlogPosts = await getCollection('blog', ({ data }: { data: CollectionEntry<'blog'>['data'] }) => {
     return !data.draft;
   });
 
-  return allBlogPosts.map(post => ({
+  return allBlogPosts.map((post: CollectionEntry<'blog'>) => ({
     params: {
       category: post.data.category,
       slug: post.slug.replace(post.data.category + '/', '')
@@ -18,8 +18,12 @@ export async function getStaticPaths() {
   }));
 }
 
+type Props = {
+  post: CollectionEntry<'blog'>;
+};
+
 const { category, slug } = Astro.params;
-const { post } = Astro.props;
+const { post } = Astro.props as Props;
 
 // Get the rendered content
 const { Content } = await post.render();
@@ -50,13 +54,13 @@ const breadcrumbs = [
 ];
 
 // Get related posts from the same category
-const relatedPosts = await getCollection('blog', ({ data }) => {
+const relatedPosts = await getCollection('blog', ({ data }: { data: CollectionEntry<'blog'>['data'] }) => {
   return !data.draft && data.category === category;
 });
 
 const otherPosts = relatedPosts
-  .filter(p => p.slug !== post.slug)
-  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .filter((p: CollectionEntry<'blog'>) => p.slug !== post.slug)
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
   .slice(0, 3);
 ---
 
@@ -142,7 +146,7 @@ const otherPosts = relatedPosts
                 <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" />
               </svg>
               <div class="flex gap-2">
-                {post.data.tags.map(tag => (
+                {post.data.tags.map((tag: string) => (
                   <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">
                     {tag}
                   </span>
@@ -163,7 +167,7 @@ const otherPosts = relatedPosts
         <section class="mb-16">
           <h2 class="text-3xl font-bold text-gray-900 mb-8">Häufig gestellte Fragen</h2>
           <div class="space-y-6">
-            {post.data.faqs.map((faq, index) => (
+            {post.data.faqs.map((faq: { question: string; answer: string }, index: number) => (
               <details class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                 <summary class="p-6 cursor-pointer hover:bg-gray-50 transition-colors">
                   <h3 class="text-lg font-semibold text-gray-900 pr-8">
@@ -186,7 +190,7 @@ const otherPosts = relatedPosts
         <section class="border-t border-gray-200 pt-16">
           <h2 class="text-3xl font-bold text-gray-900 mb-8">Weitere Artikel aus {categoryName}</h2>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {otherPosts.map(relatedPost => (
+            {otherPosts.map((relatedPost: CollectionEntry<'blog'>) => (
               <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <img
                   src={relatedPost.data.featuredImage}
