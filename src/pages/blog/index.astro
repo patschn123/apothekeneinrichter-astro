@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
 const allBlogPosts = await getCollection('blog', ({ data }) => {
   return !data.draft;
@@ -22,13 +24,16 @@ const seoProps = {
 ---
 
 <BaseLayout {...seoProps}>
-  <main class="container mx-auto px-4 py-12">
+  <Header />
+
+  <main class="section bg-background">
+    <div class="container">
     <!-- Header -->
     <header class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">
         Expertenratgeber für Apothekeneinrichtung
       </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p class="text-xl text-secondary max-w-3xl mx-auto">
         Rebekka Mädler teilt ihre 15-jährige Erfahrung in der Apothekeneinrichtung und gibt wertvolle Tipps für moderne, funktionale Gesundheitsräume.
       </p>
     </header>
@@ -36,13 +41,13 @@ const seoProps = {
     <!-- Categories Filter -->
     <section class="mb-12">
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="/blog" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+        <a href="/blog" class="btn btn-primary">
           Alle Artikel
         </a>
         {categories.map(category => (
           <a
             href={`/blog/${category}`}
-            class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors capitalize"
+            class="btn btn-secondary capitalize"
           >
             {category.replace('-', ' ')}
           </a>
@@ -61,7 +66,7 @@ const seoProps = {
           />
           <div class="p-6">
             <div class="flex items-center gap-2 mb-3">
-              <span class="text-sm text-blue-600 font-medium capitalize">
+              <span class="text-sm text-primary font-medium capitalize">
                 {post.data.category.replace('-', ' ')}
               </span>
               <span class="text-gray-400">•</span>
@@ -69,19 +74,19 @@ const seoProps = {
                 {new Date(post.data.publishDate).toLocaleDateString('de-DE')}
               </time>
             </div>
-            <h2 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-              <a href={`/blog/${post.slug}`} class="hover:text-blue-600 transition-colors">
+            <h2 class="text-xl font-bold text-primary mb-3 line-clamp-2">
+              <a href={`/blog/${post.data.category}/${post.slug.replace(post.data.category + '/', '')}`} class="hover:text-primary-light transition-colors">
                 {post.data.title}
               </a>
             </h2>
-            <p class="text-gray-600 mb-4 line-clamp-3">
+            <p class="text-secondary mb-4 line-clamp-3">
               {post.data.description}
             </p>
             <div class="flex justify-between items-center">
               <span class="text-sm text-gray-500">von {post.data.author}</span>
               <a
-                href={`/blog/${post.slug}`}
-                class="text-blue-600 hover:text-blue-700 font-medium text-sm"
+                href={`/blog/${post.data.category}/${post.slug.replace(post.data.category + '/', '')}`}
+                class="text-primary hover:text-primary-light font-medium text-sm"
               >
                 Weiterlesen →
               </a>
@@ -100,20 +105,23 @@ const seoProps = {
           class="w-32 h-32 rounded-full object-cover"
         />
         <div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">Rebekka Mädler</h3>
-          <p class="text-gray-600 mb-4">
+          <h3 class="text-2xl font-bold text-primary mb-2">Rebekka Mädler</h3>
+          <p class="text-secondary mb-4">
             Als Expertin für Apothekeneinrichtung in dritter Generation bringe ich über 15 Jahre Erfahrung in der Gestaltung funktionaler und ästhetischer Gesundheitsräume mit. Bei Mädler Einrichtungen liegt mir besonders die individuelle Beratung unserer Kunden am Herzen.
           </p>
           <a
             href="/unternehmen"
-            class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+            class="inline-flex items-center text-primary hover:text-primary-light font-medium"
           >
             Mehr über unser Team erfahren →
           </a>
         </div>
       </div>
     </section>
+    </div>
   </main>
+
+  <Footer />
 </BaseLayout>
 
 <style>

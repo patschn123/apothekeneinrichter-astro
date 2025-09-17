@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
   const allBlogPosts = await getCollection('blog', ({ data }) => {
@@ -49,7 +51,10 @@ const breadcrumbs = [
 ---
 
 <BaseLayout {...seoProps}>
-  <main class="container mx-auto px-4 py-12">
+  <Header />
+
+  <main class="section bg-background">
+    <div class="container">
     <!-- Breadcrumbs -->
     <nav class="mb-8">
       <ol class="flex items-center space-x-2 text-sm text-gray-500">
@@ -59,7 +64,7 @@ const breadcrumbs = [
             {index === breadcrumbs.length - 1 ? (
               <span class="text-gray-900 font-medium">{item.name}</span>
             ) : (
-              <a href={item.href} class="hover:text-blue-600 transition-colors">
+              <a href={item.href} class="hover:text-primary transition-colors">
                 {item.name}
               </a>
             )}
@@ -104,19 +109,19 @@ const breadcrumbs = [
                 {new Date(post.data.publishDate).toLocaleDateString('de-DE')}
               </time>
             </div>
-            <h2 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-              <a href={`/blog/${post.slug}`} class="hover:text-blue-600 transition-colors">
+            <h2 class="text-xl font-bold text-primary mb-3 line-clamp-2">
+              <a href={`/blog/${post.data.category}/${post.slug.replace(post.data.category + '/', '')}`} class="hover:text-primary-light transition-colors">
                 {post.data.title}
               </a>
             </h2>
-            <p class="text-gray-600 mb-4 line-clamp-3">
+            <p class="text-secondary mb-4 line-clamp-3">
               {post.data.description}
             </p>
             <div class="flex justify-between items-center">
               <span class="text-sm text-gray-500">von {post.data.author}</span>
               <a
-                href={`/blog/${post.slug}`}
-                class="text-blue-600 hover:text-blue-700 font-medium text-sm"
+                href={`/blog/${post.data.category}/${post.slug.replace(post.data.category + '/', '')}`}
+                class="text-primary hover:text-primary-light font-medium text-sm"
               >
                 Weiterlesen →
               </a>
@@ -128,17 +133,17 @@ const breadcrumbs = [
 
     <!-- Related Categories -->
     <section class="mt-16">
-      <h3 class="text-2xl font-bold text-gray-900 mb-6">Weitere Kategorien entdecken</h3>
+      <h3 class="text-2xl font-bold text-primary mb-6">Weitere Kategorien entdecken</h3>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
         {Object.entries(categoryNames)
           .filter(([key]) => key !== category)
           .map(([key, name]) => (
             <a
               href={`/blog/${key}`}
-              class="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+              class="card hover:shadow-lg transition-all"
             >
-              <h4 class="font-medium text-gray-900 mb-2">{name}</h4>
-              <p class="text-sm text-gray-600">
+              <h4 class="font-medium text-primary mb-2">{name}</h4>
+              <p class="text-sm text-secondary">
                 Expertentipps und Ratgeber
               </p>
             </a>
@@ -146,7 +151,10 @@ const breadcrumbs = [
         }
       </div>
     </section>
+    </div>
   </main>
+
+  <Footer />
 </BaseLayout>
 
 <style>
