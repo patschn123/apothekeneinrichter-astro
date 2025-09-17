@@ -4,5 +4,8 @@ cmd = "npm ci && npm install @rollup/rollup-linux-x64-gnu --no-save"
 [phases.build]
 cmd = "npm run build"
 
-[start]
-cmd = "npm run preview"
+[variables]
+NIXPACKS_BUILD_OUTPUT_DIR = "dist"
+
+[providers]
+providers = ["nginx"]
