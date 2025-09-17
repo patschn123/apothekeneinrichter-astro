@@ -1,0 +1,125 @@
+---
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  faqs: FAQ[];
+  title?: string;
+}
+
+const { faqs, title = "Häufig gestellte Fragen" } = Astro.props;
+---
+
+<section class="bg-gray-50 rounded-lg p-8 mt-12">
+  <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+    <svg class="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    {title}
+  </h2>
+
+  <div class="space-y-4">
+    {faqs.map((faq, index) => (
+      <details class="group bg-white rounded-lg shadow-sm transition-all duration-200">
+        <summary class="flex justify-between items-center cursor-pointer list-none p-6 hover:bg-gray-50 rounded-lg">
+          <h3 class="text-lg font-semibold text-gray-900 pr-4 leading-relaxed">
+            {faq.question}
+          </h3>
+          <div class="flex-shrink-0">
+            <svg
+              class="w-5 h-5 text-gray-400 transform transition-transform duration-200 group-open:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </summary>
+
+        <div class="px-6 pb-6">
+          <div class="pt-4 border-t border-gray-100">
+            <div class="prose prose-sm max-w-none">
+              <p class="text-gray-600 leading-relaxed m-0">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+    ))}
+  </div>
+
+  <!-- Call to Action -->
+  <div class="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-100">
+    <div class="flex items-start space-x-3">
+      <svg class="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-900 mb-2">
+          Haben Sie weitere Fragen?
+        </h4>
+        <p class="text-gray-600 mb-4">
+          Rebekka Mädler und unser Expertenteam stehen Ihnen gerne für eine persönliche Beratung zur Verfügung. Mit über 140 Jahren Erfahrung finden wir die perfekte Lösung für Ihre Apothekeneinrichtung.
+        </p>
+        <a
+          href="/kontakt"
+          class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+        >
+          Kostenlose Beratung anfragen
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+})} />
+
+<style>
+  /* Custom styles for better FAQ interaction */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] {
+    @apply shadow-md;
+  }
+
+  details[open] summary {
+    @apply bg-gray-50;
+  }
+
+  /* Smooth animation for content reveal */
+  details[open] > summary + * {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

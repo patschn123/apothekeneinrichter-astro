@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.apothekeneinrichter.de/sitemap-index.xml
+
+# Block common bot paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /dist/
+
+# Allow crawling of important content
+Allow: /unternehmen
+Allow: /leistungen
+Allow: /apothekeneinrichtungen
+Allow: /arztpraxen
+Allow: /wohnraummoebel
+Allow: /kontakt
+
+# Crawl delay for politeness
+Crawl-delay: 1

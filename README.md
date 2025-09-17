@@ -1,43 +1,69 @@
-# Astro Starter Kit: Minimal
+## Apothekeneinrichter – Website (Astro + Tailwind CSS)
 
-```sh
-npm create astro@latest -- --template minimal
+Marketing-Website für Apotheken- und Innenausbauprojekte, gebaut mit Astro, TypeScript und Tailwind CSS. Der Build erzeugt ein vollständig statisches Ergebnis in `dist/`, das auf jedem Static-Host bereitgestellt werden kann.
+
+### Tech-Stack
+- **Framework**: Astro
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Content & Assets**: `src/pages`, `src/components`, `public/images`
+
+### Voraussetzungen
+- Node.js ≥ 18
+- npm ≥ 9
+
+### Entwicklung starten
+```bash
+npm install
+npm run dev
 ```
+Der Dev-Server läuft standardmäßig auf `http://localhost:4321`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Produktion bauen & lokal prüfen
+```bash
+npm run build
+npm run preview
+```
+Das Produktions-Build liegt in `dist/`.
 
-## 🚀 Project Structure
+### Nützliche Skripte
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Dependencies installieren                        |
+| `npm run dev`             | Lokaler Dev-Server (`localhost:4321`)            |
+| `npm run build`           | Produktion nach `./dist/` bauen                  |
+| `npm run preview`         | Produktion lokal vorschauen                      |
+| `npm run astro ...`       | Astro-CLI, z. B. `astro add`, `astro check`      |
+| `npm run astro -- --help` | Hilfe zur Astro-CLI                              |
 
-Inside of your Astro project, you'll see the following folders and files:
-
+### Projektstruktur
 ```text
 /
-├── public/
+├── public/                  # Statische Assets (Bilder, Icons)
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/          # Gemeinsame UI-Komponenten (Astro)
+│   ├── layouts/             # Seiten-Layouts (z. B. BaseLayout)
+│   ├── pages/               # Routen (z. B. index, kontakt, impressum, agb ...)
+│   ├── styles/              # Globale Styles (Tailwind)
+│   └── content/             # Content Collections (blog, projects, services)
+├── dist/                    # Produktions-Build (Output)
+├── astro.config.mjs
+├── tailwind.config.mjs
+├── tsconfig.json
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Deployment
+- Das Verzeichnis `dist/` kann auf jedem Static-Host (z. B. Netlify, Vercel, GitHub Pages, eigener Server) bereitgestellt werden.
+- Optional: Nixpacks-Konfiguration vorhanden (`nixpacks.toml`).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Hinweise
+- Bilder liegen in `public/images/` und werden zur Build-Zeit unverändert übernommen.
+- Seiten werden aus `.astro`-Dateien in `src/pages/` als Routen generiert.
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Links
+- **Astro-Dokumentation**: [docs.astro.build](https://docs.astro.build)
+- **Tailwind CSS**: [tailwindcss.com](https://tailwindcss.com)
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Lizenz
+© 2025. Alle Rechte vorbehalten. Bitte wenden Sie sich an die Projektinhaber für Nutzungsrechte.

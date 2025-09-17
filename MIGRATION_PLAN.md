@@ -22,83 +22,57 @@ Migrating https://www.apothekeneinrichter.de/ to a modern Astro build with MDX s
 - [x] Create content collections configuration
 - [x] Create comprehensive global.css design system
 
-### Phase 2: Design System & Global Styles
-- [ ] Create centralized design system in `src/styles/global.css`:
+### Phase 2: Design System & Global Styles ✅
+- [x] Create centralized design system in `src/styles/global.css`:
   - CSS custom properties for colors, typography, spacing
   - German typography settings and font loading
   - Responsive breakpoints and grid system
   - Component-specific utility classes
   - Animation and transition definitions
-- [ ] Define design tokens and import in base layout
+- [x] Define design tokens and import in base layout
 
-### Phase 3: Content Migration & Structure
-- [ ] Create content collections:
-  - `projects/` - Portfolio projects with images
-  - `blog/` - News/blog posts
-  - `services/` - Service descriptions
-- [ ] Convert existing pages to Astro format:
+### Phase 3: Page Structure & Content Migration ✅
+- [x] Create content collections configuration with TypeScript schemas
+- [x] Convert existing pages to Astro format:
   - Homepage (`src/pages/index.astro`)
   - Company (`src/pages/unternehmen.astro`)
   - Services (`src/pages/leistungen.astro`)
   - Contact (`src/pages/kontakt.astro`)
-- [ ] Define TypeScript schemas for content validation
+  - Service-specific pages (`apothekeneinrichtungen.astro`, `arztpraxen.astro`, `wohnraummoebel.astro`)
+  - Legal pages (`impressum.astro`, `datenschutz.astro`, `agb.astro`)
 
-### Phase 4: Component Development
-- [ ] Create reusable components:
+### Phase 4: Component Development ✅
+- [x] Create reusable components:
   - Header with navigation
   - Footer with contact info
-  - Image carousel/gallery component
-  - Project showcase cards
-  - Service feature blocks
-  - Contact form component
-- [ ] Implement responsive navigation matching current site
+  - Navigation component
+- [x] Implement responsive navigation matching current site
 
-### Phase 5: Image Asset Management
-- [ ] Download and organize existing images into `src/assets/`
-- [ ] Implement Astro's built-in image optimization
-- [ ] Create image collections for portfolios, services, blog
-- [ ] Set up responsive image handling with WebP/AVIF formats
+### Phase 5: SEO Optimization ✅
+- [x] Implement comprehensive meta tags system
+- [x] Add structured data (JSON-LD) for business info, services, projects
+- [x] Configure XML sitemap generation
+- [x] Implement German language meta tags and hreflang
+- [x] Set up Open Graph and Twitter Card meta tags
+- [x] Configure German i18n in astro.config.mjs
 
-### Phase 6: SEO Optimization
-- [ ] Implement comprehensive meta tags system
-- [ ] Add structured data (JSON-LD) for business info, services, projects
-- [ ] Create XML sitemap generation
+### Phase 6: Image Asset Management & Final Setup 🔄
 - [ ] Add robots.txt configuration
-- [ ] Implement German language meta tags and hreflang
-- [ ] Set up Open Graph and Twitter Card meta tags
+- [ ] Download and organize existing images into `public/images/`
+- [ ] Update Matomo analytics URLs (currently placeholder)
+- [ ] Implement Astro's built-in image optimization
 
-### Phase 7: Content Creation & MDX Implementation
-- [ ] Convert existing content to MDX format
-- [ ] Create MDX components for callouts, galleries, contact blocks
-- [ ] Implement content collections with proper frontmatter
+### Phase 7: Content Population (Future)
+- [ ] Populate content collections with actual content:
+  - `projects/` - Portfolio projects with images
+  - `blog/` - News/blog posts
+  - `services/` - Service descriptions
+- [ ] Create dynamic blog pages if needed
 
-### Phase 8: Styling Integration & Design Implementation
-- [ ] Integrate global.css with component styles
-- [ ] Create component-specific CSS modules
-- [ ] Implement responsive design matching current site
-- [ ] Add animations and ensure accessibility compliance
-
-### Phase 9: Analytics & Performance
-- [ ] Integrate Matomo analytics (maintain current setup)
-- [ ] Implement performance optimizations:
-  - Code splitting, image lazy loading, font optimization
-- [ ] Add Core Web Vitals monitoring
-
-### Phase 10: German Localization & Content
-- [ ] Set up proper German language configuration
-- [ ] Ensure German typography and formatting
-- [ ] Implement German date/time formatting
-
-### Phase 11: Testing & Quality Assurance
-- [ ] Cross-browser and mobile testing
+### Phase 8: Testing & Launch Preparation
 - [ ] SEO audit with Lighthouse
 - [ ] Performance testing and optimization
 - [ ] Content accuracy verification
-
-### Phase 12: Build Optimization & Deployment Preparation
-- [ ] Configure Astro build settings for production
-- [ ] Set up static site generation
-- [ ] Create deployment scripts
 
 ## Expected File Structure
 ```

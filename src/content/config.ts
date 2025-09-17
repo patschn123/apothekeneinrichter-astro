@@ -29,11 +29,18 @@ const blog = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    metaTitle: z.string(),
+    metaDescription: z.string(),
     description: z.string(),
+    category: z.enum(['apothekenplanung', 'praxiseinrichtung', 'einrichtungstrends', 'betriebsoptimierung', 'renovierung-modernisierung']),
+    author: z.string().default('Rebekka Mädler'),
     publishDate: z.date(),
-    author: z.string().default('Mädler Team'),
-    image: z.string().optional(),
+    featuredImage: z.string(),
     tags: z.array(z.string()).optional(),
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })),
     draft: z.boolean().default(false),
   }),
 });
