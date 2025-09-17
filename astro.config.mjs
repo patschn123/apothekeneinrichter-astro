@@ -13,22 +13,13 @@ export default defineConfig({
   site: 'https://www.apothekeneinrichter.de',
   integrations: [
     mdx({
-      // Extend Markdown config for MDX
-      extendMarkdownConfig: true,
-      // Enable GitHub Flavored Markdown
+      // Don't extend markdown config to isolate MDX settings
+      extendMarkdownConfig: false,
+      // Add basic configuration
       gfm: true,
-      // Use Shiki for syntax highlighting
       syntaxHighlight: 'shiki',
-      // Add remark plugins for better content processing
-      remarkPlugins: [
-        remarkGfm,
-        [remarkToc, { heading: 'toc', maxDepth: 3 }]
-      ],
-      // Add rehype plugins for HTML processing
-      rehypePlugins: [
-        rehypeSlug,
-        [rehypeAutolinkHeadings, { behavior: 'append' }]
-      ],
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeSlug],
     }),
     sitemap(),
     tailwind(),
